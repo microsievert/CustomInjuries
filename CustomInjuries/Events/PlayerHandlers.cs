@@ -12,6 +12,9 @@ namespace CustomInjuries.Events
         {
             if (ev.Target == null)
                 return;
+
+            if (CustomInjuries.Instance.Data.ImmunityPlayers.Contains(ev.Target))
+                return;
         
             if (!ev.Target.IsHuman)
                 return;
@@ -26,7 +29,7 @@ namespace CustomInjuries.Events
             
             ev.Target.Hurt(boneParams.CalculateDamage(ev.Damage, damagedArmor, out bool instantKill));
 
-            if (instantKill)
+            if (instantKill && ev.Target.Health < 250f)
                 ev.Target.Kill(DamageType.Unknown);
 
             foreach (EffectType effect in boneParams.BoneHitEffects.Keys)

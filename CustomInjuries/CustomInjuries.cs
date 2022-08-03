@@ -1,6 +1,7 @@
 ﻿using System;
 using CustomInjuries.Events;
 using Exiled.API.Features;
+using CustomInjuries.API.Classes;
 
 namespace CustomInjuries
 {
@@ -14,11 +15,14 @@ namespace CustomInjuries
         public override Version Version { get; } = new Version(1, 0, 1);
         public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
 
+        public Data Data;
+
         private PlayerHandlers _playerHandlers;
 
         public override void OnEnabled()
         {
             Instance = this;
+            Data = new Data();
             
             RegisterEvents();
             
@@ -28,6 +32,7 @@ namespace CustomInjuries
         public override void OnDisabled()
         {
             Instance = null;
+            Data = null;
             
             UnregisterEvents();
             
