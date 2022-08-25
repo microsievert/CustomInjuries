@@ -12,7 +12,7 @@ namespace CustomInjuries
         public override string Name => "CustomInjuries";
         public override string Author => "microsievert";
 
-        public override Version Version { get; } = new Version(1, 0, 2);
+        public override Version Version { get; } = new Version(1, 0, 3);
         public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
 
         public Data Data;
