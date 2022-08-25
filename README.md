@@ -6,3 +6,6 @@ Download latest plugin release and put ``CustomInjuries.dll`` inside your ``/EXI
 
 ## Configs Management
 In this plugin config is the easiest thing on this world. No comments about configs.
+
+### Permissions
+``ci.ignore`` - This permissions will allow player to use ``cignore`` command. This command will switch player immunity for plugin.
