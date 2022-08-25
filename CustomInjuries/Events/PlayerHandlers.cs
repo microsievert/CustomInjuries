@@ -26,11 +26,11 @@ namespace CustomInjuries.Events
             ArmorType damagedArmor = ArmorTypeExtensions.GetHeaviestArmor(ev.Target);
 
             BoneParams boneParams = CustomInjuries.Instance.Config.BoneCustomInjuries[damagedBone];
-            
-            ev.Target.Hurt(boneParams.CalculateDamage(ev.Damage, damagedArmor, out bool instantKill));
+
+            ev.Damage = boneParams.CalculateDamage(ev.Damage, damagedArmor, out bool instantKill);
 
             if (instantKill && ev.Target.Health < 250f)
-                ev.Target.Kill(DamageType.Unknown);
+                ev.Damage = ev.Target.Health;
 
             foreach (EffectType effect in boneParams.BoneHitEffects.Keys)
                 ev.Target.EnableEffect(effect, boneParams.BoneHitEffects[effect]);
