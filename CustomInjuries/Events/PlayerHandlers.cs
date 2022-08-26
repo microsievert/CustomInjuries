@@ -42,6 +42,25 @@ namespace CustomInjuries.Events
                 return;
 
             ev.Target.DropItem(ev.Target.CurrentItem);
+        } 
+
+        public void OnHurting(HurtingEventArgs ev)
+        {
+            if (!CustomInjuries.Instance.Config.DamageCustomEffects.ContainsKey(ev.Handler.Type))
+                return;
+
+            DamageEffect damageEffect = CustomInjuries.Instance.Config.DamageCustomEffects[ev.Handler.Type];
+
+            ev.Handler.Damage *= damageEffect.DamageMultiplier;
+
+            if (damageEffect.EffectsChance == 0)
+                return;
+
+            if (UnityEngine.Random.Range(0, 100) >= damageEffect.EffectsChance)
+                return;
+
+            foreach (EffectType effect in damageEffect.Effects.Keys)
+                ev.Target.EnableEffect(effect, damageEffect.Effects[effect]);
         }
     }
 }

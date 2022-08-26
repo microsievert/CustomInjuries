@@ -3,6 +3,7 @@ using System.ComponentModel;
 using CustomInjuries.API.Classes;
 using CustomInjuries.API.Enums;
 using Exiled.API.Interfaces;
+using Exiled.API.Enums;
 
 namespace CustomInjuries
 {
@@ -19,6 +20,12 @@ namespace CustomInjuries
             [BoneType.RightHand] = new BoneParams(),
             [BoneType.RightLeg] = new BoneParams(),
             [BoneType.LeftLeg] = new BoneParams()
+        };
+
+        [Description("Custom damage effects by type")]
+        public Dictionary<DamageType, DamageEffect> DamageCustomEffects { get; set; } = new Dictionary<DamageType, DamageEffect>
+        {
+            [DamageType.Explosion] = new DamageEffect()
         };
 
         [Description("Can player lost item if someone damage his hands")]
