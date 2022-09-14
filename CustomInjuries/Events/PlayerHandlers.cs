@@ -41,7 +41,7 @@ namespace CustomInjuries.Events
             if (UnityEngine.Random.Range(0, 100) >= CustomInjuries.Instance.Config.ItemLoseChance)
                 return;
 
-            ev.Target.DropItem(ev.Target.CurrentItem);
+            ev.Target.CurrentItem = null;
         } 
 
         public void OnHurting(HurtingEventArgs ev)
