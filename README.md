@@ -1,4 +1,4 @@
-## CustomInjuries (v1.0.3) (EXILED-5.0.0)
+## CustomInjuries (v1.1.0) (EXILED-5.0.0)
 This is a game modification for SCP:SL servers that allows you to customize the damage received by the player in different parts of the body and just in general. Using this plugin, you can set up any effects when hitting any limb of the player, as well as use the realistic possibility of losing weapons when hitting the hands.
 
 ## Installation
