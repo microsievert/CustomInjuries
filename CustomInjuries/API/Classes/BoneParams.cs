@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using CustomInjuries.API.Enums;
+
 using Exiled.API.Enums;
+
+using CustomInjuries.API.Enums;
 
 namespace CustomInjuries.API.Classes
 {

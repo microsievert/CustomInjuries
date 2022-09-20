@@ -1,5 +1,6 @@
-﻿using CustomInjuries.API.Enums;
-using UnityEngine;
+﻿using UnityEngine;
+
+using CustomInjuries.API.Enums;
 
 namespace CustomInjuries.API.Classes.Extensions
 {

@@ -1,5 +1,7 @@
-﻿using CustomInjuries.API.Enums;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
+
+using CustomInjuries.API.Enums;
+
 using InventorySystem.Items.Armor;
 
 namespace CustomInjuries.API.Classes.Extensions

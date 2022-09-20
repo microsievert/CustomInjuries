@@ -1,8 +1,10 @@
-﻿using CommandSystem;
-using System;
+﻿using System;
 using System.Linq;
+
 using Exiled.Permissions.Extensions;
 using Exiled.API.Features;
+
+using CommandSystem;
 
 namespace CustomInjuries.Commands
 {
@@ -12,7 +14,7 @@ namespace CustomInjuries.Commands
         public string Command => "cignore";
         public string Description => "Adding immunity to plugin activity to current player. Usage: cignore <player id>";
 
-        public string[] Aliases => Array.Empty<string>();
+        public string[] Aliases => Array.Empty<string>();   
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {

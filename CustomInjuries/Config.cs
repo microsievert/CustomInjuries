@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using CustomInjuries.API.Classes;
-using CustomInjuries.API.Enums;
+
 using Exiled.API.Interfaces;
 using Exiled.API.Enums;
+
+using CustomInjuries.API.Classes;
+using CustomInjuries.API.Enums;
 
 namespace CustomInjuries
 {

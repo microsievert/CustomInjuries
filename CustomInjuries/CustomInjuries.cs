@@ -1,7 +1,9 @@
 ﻿using System;
-using CustomInjuries.Events;
+
 using Exiled.API.Features;
+
 using CustomInjuries.API.Classes;
+using CustomInjuries.Events;
 
 namespace CustomInjuries
 {

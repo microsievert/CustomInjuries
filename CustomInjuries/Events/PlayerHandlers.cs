@@ -1,6 +1,7 @@
 ﻿using CustomInjuries.API.Classes;
 using CustomInjuries.API.Classes.Extensions;
 using CustomInjuries.API.Enums;
+
 using Exiled.API.Enums;
 using Exiled.Events.EventArgs;
 
