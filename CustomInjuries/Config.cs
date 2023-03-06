@@ -13,7 +13,7 @@ namespace CustomInjuries
     {
         public bool IsEnabled { get; set; } = true;
 
-        public bool Debug { get; set; } = false;
+        public bool Debug { get; set; } = true;
 
         [Description("Dice damage customization (including body armor damage customization)")]
         public Dictionary<BoneType, BoneParams> BoneCustomInjuries { get; set; } = new Dictionary<BoneType, BoneParams>

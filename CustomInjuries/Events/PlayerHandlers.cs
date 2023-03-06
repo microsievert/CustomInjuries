@@ -16,13 +16,13 @@ namespace CustomInjuries.Events
 
             if (CustomInjuries.Instance.Data.ImmunityPlayers.Contains(ev.Target))
                 return;
-        
+
             if (!ev.Target.IsHuman)
                 return;
 
             if (ev.Target.IsGodModeEnabled)
                 return;
-            
+
             BoneType damagedBone = BoneTypeExtensions.GetByMassCenter(ev.Target.GameObject.transform.InverseTransformPoint(ev.Hitbox.CenterOfMass), ev.Hitbox._dmgMultiplier);
             ArmorType damagedArmor = ArmorTypeExtensions.GetHeaviestArmor(ev.Target);
 
@@ -36,7 +36,10 @@ namespace CustomInjuries.Events
             foreach (EffectType effect in boneParams.BoneHitEffects.Keys)
                 ev.Target.EnableEffect(effect, boneParams.BoneHitEffects[effect]);
 
-            if (ev.Target.CurrentItem == null || !CustomInjuries.Instance.Config.ItemLoseEnabled)
+            if (!CustomInjuries.Instance.Config.ItemLoseEnabled || (damagedBone != BoneType.RightHand && damagedBone != BoneType.LeftHand))
+                return;
+
+            if (ev.Target.CurrentItem == null)
                 return;
             
             if (UnityEngine.Random.Range(0, 100) >= CustomInjuries.Instance.Config.ItemLoseChance)

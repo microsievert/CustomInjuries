@@ -14,8 +14,8 @@ namespace CustomInjuries
         public override string Name => "CustomInjuries";
         public override string Author => "microsievert";
 
-        public override Version Version { get; } = new Version(1, 1, 0);
-        public override Version RequiredExiledVersion { get; } = new Version(5, 0, 0);
+        public override Version Version { get; } = new (1, 1, 1);
+        public override Version RequiredExiledVersion { get; } = new (6, 0, 0);
 
         public Data Data;
 
@@ -45,6 +45,8 @@ namespace CustomInjuries
 
         private void RegisterEvents()
         {
+            Log.Debug("SSSS");
+            
             _playerHandlers = new PlayerHandlers();
 
             Exiled.Events.Handlers.Player.Shot += _playerHandlers.OnShot;

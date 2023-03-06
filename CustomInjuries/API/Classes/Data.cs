@@ -6,7 +6,7 @@ namespace CustomInjuries.API.Classes
 {
     public class Data
     {
-        public List<Player> ImmunityPlayers { get; private set; } = new List<Player>();
+        public List<Player> ImmunityPlayers { get; } = new ();
         
         public void SwitchImmunity(Player player)
         {

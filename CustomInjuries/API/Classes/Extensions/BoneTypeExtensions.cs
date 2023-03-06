@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 
 using CustomInjuries.API.Enums;
 
@@ -13,13 +15,12 @@ namespace CustomInjuries.API.Classes.Extensions
                 case HitboxType.Headshot:
                     return BoneType.Head;
                 case HitboxType.Body:
+                    if (IsArms(boneLocalMassCenter))
+                        return IsRight(boneLocalMassCenter) ? BoneType.RightHand : BoneType.LeftHand;
+                    
                     return BoneType.Body;
                 case HitboxType.Limb:
                     bool isRight = IsRight(boneLocalMassCenter);
-                    bool isArms = IsArms(boneLocalMassCenter);
-
-                    if (isArms)
-                        return isRight ? BoneType.RightHand : BoneType.LeftHand;
 
                     return isRight ? BoneType.RightLeg : BoneType.LeftLeg;
                 default:
@@ -27,7 +28,7 @@ namespace CustomInjuries.API.Classes.Extensions
             }
         }
 
-        private static bool IsArms(Vector3 point) => point.y > 0.15f;
+        private static bool IsArms(Vector3 point) => point.z <= -0.2 || Math.Abs(point.x) > 0.1;
 
         private static bool IsRight(Vector3 point) => point.x > 0;
     }
