@@ -3,7 +3,7 @@ using CustomInjuries.API.Classes.Extensions;
 using CustomInjuries.API.Enums;
 
 using Exiled.API.Enums;
-using Exiled.Events.EventArgs;
+using Exiled.Events.EventArgs.Player;
 
 namespace CustomInjuries.Events
 {
@@ -47,12 +47,12 @@ namespace CustomInjuries.Events
 
         public void OnHurting(HurtingEventArgs ev)
         {
-            if (!CustomInjuries.Instance.Config.DamageCustomEffects.ContainsKey(ev.Handler.Type))
+            if (!CustomInjuries.Instance.Config.DamageCustomEffects.ContainsKey(ev.DamageHandler.Type))
                 return;
 
-            DamageEffect damageEffect = CustomInjuries.Instance.Config.DamageCustomEffects[ev.Handler.Type];
+            DamageEffect damageEffect = CustomInjuries.Instance.Config.DamageCustomEffects[ev.DamageHandler.Type];
 
-            ev.Handler.Damage *= damageEffect.DamageMultiplier;
+            ev.DamageHandler.Damage *= damageEffect.DamageMultiplier;
 
             if (damageEffect.EffectsChance == 0)
                 return;
@@ -61,7 +61,7 @@ namespace CustomInjuries.Events
                 return;
 
             foreach (EffectType effect in damageEffect.Effects.Keys)
-                ev.Target.EnableEffect(effect, damageEffect.Effects[effect]);
+                ev.Player.EnableEffect(effect, damageEffect.Effects[effect]);
         }
     }
 }
