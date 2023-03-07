@@ -45,8 +45,6 @@ namespace CustomInjuries
 
         private void RegisterEvents()
         {
-            Log.Debug("SSSS");
-            
             _playerHandlers = new PlayerHandlers();
 
             Exiled.Events.Handlers.Player.Shot += _playerHandlers.OnShot;

@@ -16,20 +16,20 @@ namespace CustomInjuries
         public bool Debug { get; set; } = false;
 
         [Description("Dice damage customization (including body armor damage customization)")]
-        public Dictionary<BoneType, BoneParams> BoneCustomInjuries { get; set; } = new Dictionary<BoneType, BoneParams>
+        public Dictionary<BoneType, BoneParams> BoneCustomInjuries { get; set; } = new ()
         {
-            [BoneType.Head] = new BoneParams(),
-            [BoneType.Body] = new BoneParams(),
-            [BoneType.LeftHand] = new BoneParams(),
-            [BoneType.RightHand] = new BoneParams(),
-            [BoneType.RightLeg] = new BoneParams(),
-            [BoneType.LeftLeg] = new BoneParams()
+            [BoneType.Head] = new (),
+            [BoneType.Body] = new (),
+            [BoneType.LeftHand] = new (),
+            [BoneType.RightHand] = new (),
+            [BoneType.RightLeg] = new (),
+            [BoneType.LeftLeg] = new ()
         };
 
         [Description("Custom damage effects by type")]
-        public Dictionary<DamageType, DamageEffect> DamageCustomEffects { get; set; } = new Dictionary<DamageType, DamageEffect>
+        public Dictionary<DamageType, DamageEffect> DamageCustomEffects { get; set; } = new ()
         {
-            [DamageType.Explosion] = new DamageEffect()
+            [DamageType.Explosion] = new ()
         };
 
         [Description("Can player lost item if someone damage his hands")]
